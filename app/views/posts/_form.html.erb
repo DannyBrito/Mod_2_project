@@ -1,4 +1,5 @@
 <%= form_for @post do |f| %>
+    Select User:<%= f.collection_select :user_id, User.all, :id, :username %><br>
     <%= f.label :content, "Content:" %><br>
     <%= f.text_area :content %><br>
     <%= f.submit %>
