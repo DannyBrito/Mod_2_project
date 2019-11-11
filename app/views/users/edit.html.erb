@@ -1,0 +1,23 @@
+<h2> Edit Your Profile </h2>
+
+<%= form_for @user do |f| %>
+    <%= f.label :username %>:
+    <%= f.text_field :username %><br>
+
+    Current <%= f.label :mood %>:
+    <%= f.text_field :mood %><br>
+
+    Favorite <%= f.label :hobby %>:
+    <%= f.text_field :hobby %><br>
+
+    Favorite <%= f.label :food %>:
+    <%= f.text_field :food %><br>
+
+    Favorite <%= f.label :music %> Genre:
+    <%= f.text_field :music %><br>
+
+    <%= f.label :hobby %>:
+    <%= f.text_field :hobby %><br>
+
+    <%= f.submit %>
+<% end %>
