@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     def new #for login
         @user = User.new
-        #redirect_to :controller => "users", :action => "new
+        #redirect_to :controller => "users", :action => "new"
     end
 
     def create
@@ -15,4 +15,7 @@ class SessionsController < ApplicationController
         redirect_to '/'
     end
 
+    def session_params
+        params.require(:user).permit(:username,:password)
+    end
 end
