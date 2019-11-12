@@ -5877,3 +5877,74 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 33ms (Views: 28.3ms | ActiveRecord: 0.0ms | Allocations: 5852)
 
 
+Started GET "/posts/2" for ::1 at 2019-11-12 13:27:17 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:43:in `find_post'
+Completed 404 Not Found in 23ms (ActiveRecord: 0.8ms | Allocations: 4673)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=2):
+  
+app/controllers/posts_controller.rb:43:in `find_post'
+Started GET "/" for ::1 at 2019-11-12 13:27:20 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 5.4ms | Allocations: 647)
+Completed 200 OK in 114ms (Views: 109.7ms | ActiveRecord: 0.0ms | Allocations: 8974)
+
+
+Started GET "/login" for ::1 at 2019-11-12 13:27:23 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 2472)
+Completed 200 OK in 88ms (Views: 27.3ms | ActiveRecord: 3.2ms | Allocations: 15710)
+
+
+Started POST "/login" for ::1 at 2019-11-12 13:27:33 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"rAqtayzl4RZJ3qVuqD6VL2oSnM0KUtGwFmz2Thb0READog3jXf/EOq2311wCqt68zaQ79cI5KjyMvMz4fUidzw==", "user"=>{"username"=>"new", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 675)
+
+
+Started GET "/" for ::1 at 2019-11-12 13:27:33 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 308)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms | Allocations: 4655)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-12 13:30:18 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 606)
+Completed 200 OK in 38ms (Views: 20.4ms | ActiveRecord: 1.8ms | Allocations: 13221)
+
+
+Started POST "/login" for ::1 at 2019-11-12 13:30:21 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"EX42P0+5noSxJyxlb5BMfjSKDCEychpHdEslrU/Kqce+1pa3PqO7qFVOXlfFBAftkzyrGfoZ4cvumx8bJHZwSA==", "user"=>{"username"=>"ddd", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 946)
+
+
+  
+RuntimeError (<ActionController::Parameters {"authenticity_token"=>"EX42P0+5noSxJyxlb5BMfjSKDCEychpHdEslrU/Kqce+1pa3PqO7qFVOXlfFBAftkzyrGfoZ4cvumx8bJHZwSA==", "user"=>{"username"=>"ddd", "password"=>"efef"}, "commit"=>"Login", "controller"=>"sessions", "action"=>"create"} permitted: false>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started POST "/login" for ::1 at 2019-11-12 13:30:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"EX42P0+5noSxJyxlb5BMfjSKDCEychpHdEslrU/Kqce+1pa3PqO7qFVOXlfFBAftkzyrGfoZ4cvumx8bJHZwSA==", "user"=>{"username"=>"ddd", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 943)
+
+
+  
+RuntimeError (<ActionController::Parameters {"authenticity_token"=>"EX42P0+5noSxJyxlb5BMfjSKDCEychpHdEslrU/Kqce+1pa3PqO7qFVOXlfFBAftkzyrGfoZ4cvumx8bJHZwSA==", "user"=>{"username"=>"ddd", "password"=>""}, "commit"=>"Login", "controller"=>"sessions", "action"=>"create"} permitted: false>):
+  
+app/controllers/sessions_controller.rb:9:in `create'
