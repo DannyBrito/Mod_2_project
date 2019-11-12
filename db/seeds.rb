@@ -9,12 +9,11 @@ User.destroy_all
 Post.destroy_all
 ##TEST USERS
 
-us1 = User.create(username: "Dan")
-us2= User.create(username: "Eli")
-us3 = User.create(username: "Jack")
-us4 = User.create(username: "Ont")
-us5 = User.create(username: "Pr")
-
+us1 = User.create(username: "Dan",password:'1234')
+us2= User.create(username: "Eli",password:'1111')
+us3 = User.create(username: "Jack",password:'2222')
+us4 = User.create(username: "Ont",password:'3333')
+us5 = User.create(username: "Pr",password:'4444')
 post1 = Post.create(user: us5, content: "hello")
 post2 = Post.create(user: us2, content: "LOL")
 post3 = Post.create(user: us4, content: "Other one")

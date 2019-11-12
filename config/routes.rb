@@ -14,6 +14,6 @@ Rails.application.routes.draw do
 
   post '/logout', to: "sessions#destroy"
 
-  get '/SignUp', to: "users#new"
+  get '/sign-up', to: "users#new"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
