@@ -6,9 +6,14 @@ This show only be displayed if no login & and option to login or signup
     <%= submit_tag "Log-In" %>
 <% end %>
 <br>
+<%= form_tag '/logout', method: :post do %>
+    <%= submit_tag "Log-out" %>
+<% end %>
+
 <%= form_tag new_user_path, method: :get do %>
     <%= submit_tag "Sign-Up" %>
 <% end %>
 
+<% if session[:username] %>
 <p><strong>Welcome</strong>, <%= session[:username].capitalize%>!</p>
-
+<% end %>
