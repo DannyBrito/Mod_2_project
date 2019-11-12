@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :find_user, only:[:show, :edit, :update, :destroy]
 
     def index 
+        #redirect_to '/' if !@logged_in_user
         @users = User.all
     end
 
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.create(user_params)
-        redirect_to users_path(@user)
+        redirect_to user_path(@user)
     end
 
     def edit
@@ -32,8 +33,9 @@ class UsersController < ApplicationController
     end
 
     private
+    
     def user_params
-        params.require(:user).permit(:username, :mood, :hobby, :job, :food, :music)
+    params.require(:user).permit(:username, :mood, :hobby, :job, :food, :music, :password, :password_confirmation)
     end
 
     def find_user
