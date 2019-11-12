@@ -1,7 +1,8 @@
 <h1>SHOW FOR POST</h1>
 
 User:<br>
-<%= link_to @post.user.username, user_path(@post.user) %><br>Content:
+<%= link_to @post.user.username, user_path(@post.user) %><br>
+<%= @post.img_url %>
 <%= @post.content %>
 
 <hr>
@@ -12,3 +13,25 @@ User:<br>
 <%= form_tag edit_post_path(@post),method: :get do %>
     <%= submit_tag "EDIT" %>
 <% end %>
+<br>
+<%= form_tag post_path(@post),method: :get do %>
+    <%= submit_tag "Comment" %>
+<% end %>
+
+<%= form_tag new_like_path(@like),method: :get do %>
+    <%= submit_tag "Like" %>
+<% end %>
+
+<%= form_tag('/comments') do %>
+    <input type="text" id="content" name="comment[content]"><br>
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= hidden_field_tag :user_id, 31 %>
+    <input type="submit" value="Submit Comment">
+    <% end %><br>
+
+Likes:              Comments: <%= @post.comments.count %><br>
+----------------------------------------------<br>
+<% @post.comments.each do |comment| %>
+    <%= comment.user.username %> said:  
+    <%= comment.content %><br>
+    <% end %>
