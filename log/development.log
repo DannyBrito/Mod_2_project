@@ -3869,3 +3869,1026 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.1ms | Allocations: 5155)
 
 
+Started GET "/users" for ::1 at 2019-11-12 09:37:39 -0500
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 7099)
+Completed 200 OK in 110ms (Views: 88.1ms | ActiveRecord: 3.4ms | Allocations: 19861)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 09:37:41 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 220)
+Completed 200 OK in 46ms (Views: 31.1ms | ActiveRecord: 0.6ms | Allocations: 5835)
+
+
+Started GET "/users/21/edit" for ::1 at 2019-11-12 09:37:46 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 28.5ms | Allocations: 3566)
+Completed 200 OK in 57ms (Views: 52.1ms | ActiveRecord: 0.2ms | Allocations: 8731)
+
+
+Started PATCH "/users/21" for ::1 at 2019-11-12 09:37:53 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"uLPNVihTPT7qFxX0nVbRnoNaYv0a4IEAT2i5mXuoNSdMWHVeUW+ptG9mjggMVZbQJDEiam4QpRpejZfpkuO4Fw==", "user"=>{"username"=>"Eli", "mood"=>"Dying", "hobby"=>"Dying", "food"=>"", "music"=>"none"}, "commit"=>"Update User", "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.7ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Eli"], ["updated_at", "2019-11-12 14:37:53.459686"], ["id", 21]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Eli"], ["updated_at", "2019-11-12 14:37:53.489892"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Eli"], ["updated_at", "2019-11-12 14:37:53.499916"], ["id", 23]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Eli"], ["updated_at", "2019-11-12 14:37:53.508087"], ["id", 24]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Eli"], ["updated_at", "2019-11-12 14:37:53.516083"], ["id", 25]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+No template found for UsersController#update, rendering head :no_content
+Completed 204 No Content in 90ms (ActiveRecord: 14.1ms | Allocations: 14803)
+
+
+Started GET "/users" for ::1 at 2019-11-12 09:38:51 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 6465)
+Completed 200 OK in 32ms (Views: 25.2ms | ActiveRecord: 1.0ms | Allocations: 12887)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:38:53 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 0.3ms | Allocations: 5163)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:38:58 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1599)
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 0.3ms | Allocations: 6610)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:42:04 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 28)
+Completed 200 OK in 35ms (Views: 15.3ms | ActiveRecord: 0.8ms | Allocations: 12774)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:42:09 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `find_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1605)
+Completed 200 OK in 28ms (Views: 23.2ms | ActiveRecord: 0.4ms | Allocations: 7066)
+
+
+Started PATCH "/users/22" for ::1 at 2019-11-12 09:42:15 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"KVoPixcfeEvI27ho379EH+J24rXUEQu9aSa/Oi32aNvdsbeDbiPswU2qI5ROvANRRR2iIqDhL6d4w5FKxL3l6w==", "user"=>{"username"=>"Eli", "mood"=>"not dying", "hobby"=>"Dying", "food"=>"", "music"=>"none"}, "commit"=>"Update User", "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `find_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "not dying"], ["updated_at", "2019-11-12 14:42:15.190103"], ["id", 21]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "not dying"], ["updated_at", "2019-11-12 14:42:15.205466"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "not dying"], ["updated_at", "2019-11-12 14:42:15.215904"], ["id", 23]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "not dying"], ["updated_at", "2019-11-12 14:42:15.246937"], ["id", 24]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "not dying"], ["updated_at", "2019-11-12 14:42:15.252433"], ["id", 25]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+Redirected to http://localhost:3000/users.21%2F22%2F23%2F24%2F25
+Completed 302 Found in 83ms (ActiveRecord: 14.1ms | Allocations: 13838)
+
+
+Started GET "/users.21%2F22%2F23%2F24%2F25" for ::1 at 2019-11-12 09:42:15 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 785)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 5457)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:42:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 21)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 1.0ms | Allocations: 5048)
+
+
+Started GET "/users" for ::1 at 2019-11-12 09:48:09 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 6032)
+Completed 200 OK in 35ms (Views: 28.4ms | ActiveRecord: 0.2ms | Allocations: 12502)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:48:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 28ms (Views: 22.0ms | ActiveRecord: 0.3ms | Allocations: 5165)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:48:24 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1599)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.2ms | Allocations: 6617)
+
+
+Started PATCH "/users/22" for ::1 at 2019-11-12 09:48:30 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"zAGG0k5tv2VO7Af8YBHn9tFPzptHNGws63IEnUYtj7A46j7aN1Er78udnADxEqC4diSODDPESDb6lyrtr2YCgA==", "user"=>{"username"=>"Danny", "mood"=>"not dying", "hobby"=>"Dying", "food"=>"", "music"=>"none"}, "commit"=>"Update User", "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Danny"], ["updated_at", "2019-11-12 14:48:30.247294"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Redirected to http://localhost:3000/users.22
+Completed 302 Found in 17ms (ActiveRecord: 2.8ms | Allocations: 3309)
+
+
+Started GET "/users.22" for ::1 at 2019-11-12 09:48:30 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 785)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.3ms | Allocations: 5303)
+
+
+Started GET "/users" for ::1 at 2019-11-12 09:48:37 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 786)
+Completed 200 OK in 58ms (Views: 26.6ms | ActiveRecord: 0.3ms | Allocations: 5311)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:48:38 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 21)
+Completed 200 OK in 29ms (Views: 18.2ms | ActiveRecord: 7.7ms | Allocations: 5042)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:50:38 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 846)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.2ms | Allocations: 6886)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:51:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 622)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 6655)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:51:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 622)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.2ms | Allocations: 6656)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:51:46 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 625)
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 0.2ms | Allocations: 6660)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 09:51:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 624)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.2ms | Allocations: 6654)
+
+
+Started PATCH "/users/23" for ::1 at 2019-11-12 09:52:04 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"WQEerUFjwQDxvnLsILhHF8/6GR31vZ1JRAmpRizUcT6t6qalOF9VinTP6RCxuwBZaJFZioFNuVNV7Ic2xZ/8Dg==", "commit"=>"Update User", "id"=>"23"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `find_user'
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.3ms | Allocations: 1133)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:34:in `user_params'
+app/controllers/users_controller.rb:24:in `update'
+Started GET "/users/23" for ::1 at 2019-11-12 09:53:12 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/23/edit
+Completed 302 Found in 18ms (ActiveRecord: 1.1ms | Allocations: 8497)
+
+
+Started GET "/users/23/edit" for ::1 at 2019-11-12 09:53:13 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1935)
+Completed 200 OK in 23ms (Views: 19.5ms | ActiveRecord: 0.1ms | Allocations: 7279)
+
+
+Started PATCH "/users/23" for ::1 at 2019-11-12 09:53:35 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"PSCZTeeSMpsw8232tFRsGfsCXCDtzP2vhAsKQ5CXGJTJyyFFnq6mEbWC9golVytXXGkct5k82bWV7iQzedyVpA==", "user"=>{"username"=>"Eli", "mood"=>"Dumb", "hobby"=>"Dying", "food"=>"Pizza", "music"=>"none"}, "commit"=>"Update User", "id"=>"23"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "food" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "Dumb"], ["food", "Pizza"], ["updated_at", "2019-11-12 14:53:35.199442"], ["id", 23]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.23
+Completed 302 Found in 19ms (ActiveRecord: 4.6ms | Allocations: 3333)
+
+
+Started GET "/users.23" for ::1 at 2019-11-12 09:53:35 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 26.0ms | Allocations: 954)
+Completed 200 OK in 40ms (Views: 37.6ms | ActiveRecord: 0.3ms | Allocations: 5659)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 09:53:41 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/21/edit
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 810)
+
+
+Started GET "/users/21/edit" for ::1 at 2019-11-12 09:53:41 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1545)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.1ms | Allocations: 6576)
+
+
+Started GET "/users/24/edit" for ::1 at 2019-11-12 09:53:50 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1543)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.3ms | Allocations: 6567)
+
+
+Started PATCH "/users/24" for ::1 at 2019-11-12 09:53:56 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"rj0iVZauhYW9OhHsh/3HhhGXDimq4byzLVIPlX8wRoRa1ppd75IRDzhLihAW/oDItvxOvt4RmKk8tyHllnvLtA==", "user"=>{"username"=>"Not Eli", "mood"=>"not dying", "hobby"=>"Dying", "food"=>"", "music"=>"none"}, "commit"=>"Update User", "id"=>"24"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "Not Eli"], ["updated_at", "2019-11-12 14:53:56.342290"], ["id", 24]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.24
+Completed 302 Found in 16ms (ActiveRecord: 3.7ms | Allocations: 3176)
+
+
+Started GET "/users.24" for ::1 at 2019-11-12 09:53:56 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 785)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 5306)
+
+
+Started GET "/users" for ::1 at 2019-11-12 09:54:10 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 785)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 5413)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:54:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/22/edit
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 816)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:54:14 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1543)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 6575)
+
+
+Started PATCH "/users/22" for ::1 at 2019-11-12 09:54:44 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"MqcvMv8obokpayaZ/yHYG6FOQqzRpc6RG6CG1MORoNfsMqdnE4p+oR9CLLTdfWkcKkKhkMquBA40BSf/7KZ9Qg==", "user"=>{"username"=>"Danny", "mood"=>"Chillen", "hobby"=>"", "food"=>"Coffee", "music"=>""}, "commit"=>"Update User", "id"=>"22"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "mood" = ?, "hobby" = ?, "food" = ?, "music" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["mood", "Chillen"], ["hobby", ""], ["food", "Coffee"], ["music", ""], ["updated_at", "2019-11-12 14:54:44.200885"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.22
+Completed 302 Found in 19ms (ActiveRecord: 3.2ms | Allocations: 3239)
+
+
+Started GET "/users.22" for ::1 at 2019-11-12 09:54:44 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 785)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 5303)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:54:46 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/22/edit
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 814)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:54:46 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1541)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 6575)
+
+
+Started PATCH "/users/22" for ::1 at 2019-11-12 09:55:33 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"/km1NxI8Zqw9GGooAnlN8j7N4ypJsraL4YK/TwcrSEIg3D1i/p52hAsxYAUgJfz1tcEAFlK5fBTOJx5kKByV1w==", "user"=>{"username"=>"Danny", "mood"=>"Chillen", "hobby"=>"Student", "food"=>"Coffee", "music"=>""}, "commit"=>"Update User", "id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "hobby" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["hobby", "Student"], ["updated_at", "2019-11-12 14:55:33.252334"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.22
+Completed 302 Found in 22ms (ActiveRecord: 5.9ms | Allocations: 3204)
+
+
+Started GET "/users.22" for ::1 at 2019-11-12 09:55:33 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 935)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.4ms | Allocations: 6511)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:55:34 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/22/edit
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 810)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:55:34 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1890)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms | Allocations: 7063)
+
+
+Started PATCH "/users/22" for ::1 at 2019-11-12 09:55:56 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"DYWQ2mqzSsVwJ0te76ocZsMXzauU8MHxUYAiGFG2GrHTEBiPhhFa7UYOQXPN9q1hSBsul4/7C25+JYMzfoHHJA==", "user"=>{"username"=>"Danny", "mood"=>"Chillen", "hobby"=>"Drinking Coffee", "food"=>"Coffee", "music"=>"", "job"=>"Student"}, "commit"=>"Update User", "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "hobby" = ?, "job" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["hobby", "Drinking Coffee"], ["job", "Student"], ["updated_at", "2019-11-12 14:55:56.755484"], ["id", 22]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.22
+Completed 302 Found in 17ms (ActiveRecord: 3.3ms | Allocations: 3223)
+
+
+Started GET "/users.22" for ::1 at 2019-11-12 09:55:56 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 786)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 5304)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 09:55:58 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/22/edit
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 816)
+
+
+Started GET "/users/22/edit" for ::1 at 2019-11-12 09:55:58 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1546)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.1ms | Allocations: 6580)
+
+
+Started PATCH "/users/22" for ::1 at 2019-11-12 09:56:45 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"KTrBWLR+QKirxAg+3nUqAng43XWc4cH39eK4pW67dm73r0kNWNxQgJ3tAhP8KZsF8zQ+SYfqC2jaRxmOQYyr+w==", "user"=>{"username"=>"Danny", "mood"=>"Chillen", "hobby"=>"Drinking Coffee", "food"=>"Coffee", "music"=>"", "job"=>"Student"}, "commit"=>"Update User", "id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users.22
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 1239)
+
+
+Started GET "/users.22" for ::1 at 2019-11-12 09:56:45 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 786)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 5309)
+
+
+Started GET "/users/25" for ::1 at 2019-11-12 09:56:52 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/25/edit
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 809)
+
+
+Started GET "/users/25/edit" for ::1 at 2019-11-12 09:56:52 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1540)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.6ms | Allocations: 6574)
+
+
+Started PATCH "/users/25" for ::1 at 2019-11-12 09:57:00 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"LYiIs8BN9TrU9Xk4xs5CWCObSoOR0UZ01favaQ5s2NJHkIF4+9N8Qb57oTLv+elvxBKZ6n/E8jUJFZ+yw6RZ8g==", "user"=>{"username"=>"Eli", "mood"=>"not dying", "hobby"=>"Dying", "food"=>"", "music"=>"none", "job"=>""}, "commit"=>"Update User", "id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "job" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["job", ""], ["updated_at", "2019-11-12 14:57:00.548847"], ["id", 25]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.25
+Completed 302 Found in 27ms (ActiveRecord: 11.5ms | Allocations: 3210)
+
+
+Started GET "/users.25" for ::1 at 2019-11-12 09:57:00 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 787)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.2ms | Allocations: 5308)
+
+
+Started GET "/" for ::1 at 2019-11-12 09:57:41 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 111)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 4896)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:01:06 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 792)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 0.2ms | Allocations: 5421)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 10:02:54 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/21/edit
+Completed 302 Found in 16ms (ActiveRecord: 1.0ms | Allocations: 8404)
+
+
+Started GET "/users/21/edit" for ::1 at 2019-11-12 10:02:54 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1611)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.1ms | Allocations: 6799)
+
+
+Started PATCH "/users/21" for ::1 at 2019-11-12 10:03:03 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"9CZ+Ju40SI2Ft4rdLBz5t2yozx5wK1zWtxHfq+Mk5A3gvVMZpYUPhik3wKIhYWogrMbNOXrjiJQTwPX9yT+38A==", "user"=>{"username"=>"Eli", "mood"=>"not dying", "hobby"=>"Dying", "food"=>"", "music"=>"none", "job"=>""}, "commit"=>"Update User", "id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "job" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["job", ""], ["updated_at", "2019-11-12 15:03:03.645982"], ["id", 21]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.21
+Completed 302 Found in 12ms (ActiveRecord: 2.1ms | Allocations: 3346)
+
+
+Started GET "/users.21" for ::1 at 2019-11-12 10:03:03 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 812)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 5333)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:03:30 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 788)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms | Allocations: 5306)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 10:03:33 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/23/edit
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 814)
+
+
+Started GET "/users/23/edit" for ::1 at 2019-11-12 10:03:33 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1541)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 0.2ms | Allocations: 6572)
+
+
+Started PATCH "/users/23" for ::1 at 2019-11-12 10:03:36 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"yIBprbAZ7IgOg3tFmnlntEgL6NF4GUAM6tKhG2TJW4Qu4RGDsCWgzETfJypyLEg0mrC8SDMFKCpDQi+msGP5cQ==", "user"=>{"username"=>"Eli", "mood"=>"Dumb", "hobby"=>"Dying", "food"=>"Pizza", "music"=>"none", "job"=>""}, "commit"=>"Update User", "id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "job" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["job", ""], ["updated_at", "2019-11-12 15:03:36.302137"], ["id", 23]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://localhost:3000/users.23
+Completed 302 Found in 23ms (ActiveRecord: 10.0ms | Allocations: 3209)
+
+
+Started GET "/users.23" for ::1 at 2019-11-12 10:03:36 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 789)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.2ms | Allocations: 5305)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 10:03:46 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/21/edit
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 822)
+
+
+Started GET "/users/21/edit" for ::1 at 2019-11-12 10:03:46 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1545)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms | Allocations: 6578)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:04:36 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 789)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.3ms | Allocations: 5306)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 10:05:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/21/edit
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 805)
+
+
+Started GET "/users/21/edit" for ::1 at 2019-11-12 10:05:03 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1545)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.2ms | Allocations: 6567)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 10:05:12 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+Redirected to http://localhost:3000/users/21/edit
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 807)
+
+
+Started GET "/users/21/edit" for ::1 at 2019-11-12 10:05:12 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1545)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.3ms | Allocations: 6563)
+
+
+Started GET "/users/21" for ::1 at 2019-11-12 10:06:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 381)
+Completed 200 OK in 32ms (Views: 15.6ms | ActiveRecord: 1.0ms | Allocations: 13970)
+
+
+Started GET "/users/21/edit?commit=EDIT" for ::1 at 2019-11-12 10:06:26 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"commit"=>"EDIT", "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1913)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 7075)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:06:31 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 958)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.3ms | Allocations: 5619)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 10:06:34 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 126)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.4ms | Allocations: 5146)
+
+
+Started GET "/users/22/edit?commit=EDIT" for ::1 at 2019-11-12 10:06:41 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"commit"=>"EDIT", "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1548)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.4ms | Allocations: 6574)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:06:55 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 939)
+Completed 200 OK in 26ms (Views: 23.2ms | ActiveRecord: 0.2ms | Allocations: 6472)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 10:06:56 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 367)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.3ms | Allocations: 5533)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 10:07:09 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 367)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.2ms | Allocations: 6397)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 10:08:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 219.3ms | Allocations: 75308)
+Completed 500 Internal Server Error in 225ms (ActiveRecord: 0.3ms | Allocations: 76986)
+
+
+  
+ActionView::Template::Error (undefined method `destroy_user_path' for #<#<Class:0x00007fc5ce778c88>:0x00007fc5ce782828>):
+    14: <% end %>
+    15: 
+    16: 
+    17: <%= form_tag destroy_user_path(@user),method: :delete do %>
+    18:     <%= submit_tag "Delete Profile" %>
+    19: <% end %>
+  
+app/views/users/show.html.erb:17
+Started GET "/users/22" for ::1 at 2019-11-12 10:08:47 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 582)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.2ms | Allocations: 6618)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:17:18 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 965)
+Completed 200 OK in 33ms (Views: 30.2ms | ActiveRecord: 0.3ms | Allocations: 5630)
+
+
+Started GET "/users/22" for ::1 at 2019-11-12 10:17:20 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 284)
+Completed 200 OK in 24ms (Views: 19.2ms | ActiveRecord: 0.3ms | Allocations: 5329)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:17:26 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 789)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.2ms | Allocations: 5307)
+
+
+Started GET "/users/25" for ::1 at 2019-11-12 10:17:28 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 283)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.2ms | Allocations: 5305)
+
+
+Started DELETE "/users/25" for ::1 at 2019-11-12 10:17:29 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"upappoZQqbuZcwZywC0P/IsWlZfnTC8nm/+OpE5KlgPpg16S6ehxzpHGo0R2VVVl8DyDi/Qi48zWkz4J1HAqvQ==", "commit"=>"Delete Profile", "id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 25]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+No template found for UsersController#destroy, rendering head :no_content
+Completed 204 No Content in 26ms (ActiveRecord: 10.5ms | Allocations: 3864)
+
+
+Started GET "/users" for ::1 at 2019-11-12 10:17:59 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 6427)
+Completed 200 OK in 30ms (Views: 22.4ms | ActiveRecord: 1.2ms | Allocations: 12904)
+
+
+Started GET "/users/23" for ::1 at 2019-11-12 10:18:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 290)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 2.0ms | Allocations: 5432)
+
+
+Started DELETE "/users/23" for ::1 at 2019-11-12 10:18:05 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Mkqok9BIQYqdCQT19JNbEAeno0MFEdKas+FmAaErtIOvkbNLE+4p8PNvL0voeBgbicSE9uDFKiEt61NzijyuKw==", "commit"=>"Delete Profile", "id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40:in `find_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 23]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+Redirected to http://localhost:3000/users.23
+Completed 302 Found in 15ms (ActiveRecord: 9.2ms | Allocations: 2555)
+
+
+Started GET "/users.23" for ::1 at 2019-11-12 10:18:05 -0500
+Processing by UsersController#index as 
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 704)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 5377)
+
+
