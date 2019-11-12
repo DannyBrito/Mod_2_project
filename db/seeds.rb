@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
+Post.destroy_all
 ##TEST USERS
 
 us1 = User.create(username: "Dan")
@@ -14,4 +15,6 @@ us3 = User.create(username: "Jack")
 us4 = User.create(username: "Ont")
 us5 = User.create(username: "Pr")
 
-post = Post.create(user: us5, content: "hello")
+post1 = Post.create(user: us5, content: "hello")
+post2 = Post.create(user: us2, content: "LOL")
+post3 = Post.create(user: us4, content: "Other one")
