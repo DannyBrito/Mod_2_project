@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
     def new #for login
         @user = User.new
+        #redirect_to :controller => "users", :action => "new
     end
 
     def create
@@ -10,7 +11,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session[:username].delete
+        session.delete :username
+        redirect_to '/'
     end
 
 end
