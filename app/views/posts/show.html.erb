@@ -1,6 +1,8 @@
 <h1>SHOW FOR POST</h1>
 
-<%= link_to @post.user.username, user_path(@post.user) %> says:<br><%= @post.content %>
+User:<br>
+<%= link_to @post.user.username, user_path(@post.user) %><br>Content:
+<%= @post.content %>
 
 <hr>
 <%= form_tag post_path(@post),method: :delete do %>
