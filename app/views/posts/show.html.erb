@@ -1,8 +1,5 @@
-<h1>SHOW FOR POST</h1>
-
-User:<br>
-<%= link_to @post.user.username, user_path(@post.user) %><br>
-<%= @post.img_url %>
+User: <%= link_to @post.user.username, user_path(@post.user) %><br>
+<%# @post.img_url %>
 <%= @post.content %>
 
 <hr>
