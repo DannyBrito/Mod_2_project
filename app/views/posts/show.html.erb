@@ -6,12 +6,14 @@ User:<br>
 <%= @post.content %>
 
 <hr>
-<%= form_tag post_path(@post),method: :delete do %>
-    <%= submit_tag "DELETE" %>
-<% end %>
-<br>
-<%= form_tag edit_post_path(@post),method: :get do %>
-    <%= submit_tag "EDIT" %>
+<% if @logged_in_user == @post.user %>
+    <%= form_tag post_path(@post),method: :delete do %>
+        <%= submit_tag "DELETE" %>
+    <% end %>
+    <br>
+    <%= form_tag edit_post_path(@post),method: :get do %>
+        <%= submit_tag "EDIT" %>
+    <% end %>
 <% end %>
 <br>
 <%= form_tag post_path(@post),method: :get do %>
@@ -22,16 +24,16 @@ User:<br>
     <%= submit_tag "Like" %>
 <% end %>
 
-<%= form_tag('/comments') do %>
-    <input type="text" id="content" name="comment[content]"><br>
-    <%= hidden_field_tag :post_id, @post.id %>
-    <%= hidden_field_tag :user_id, 36 %>
-    <input type="submit" value="Submit Comment">
-    <% end %><br>
-
-Likes: Comments: <%= @post.comments.count %><br>
+Likes: <%= @post.likes.count %> Comments: <%= @post.comments.count %><br>
 ----------------------------------------------<br>
 <% @post.comments.each do |comment| %>
     <%= comment.user.username %> said:  
     <%= comment.content %><br>
+    <% end %>
+
+<%= form_for(@comment) do |f| %>
+    <%= f.hidden_field :post_id, :value => @post.id %>
+    <%= f.hidden_field :user_id, :value => @logged_in_user.id %>
+    <%= f.text_field :content %>
+    <%= f.submit "Comment" %>
     <% end %>
