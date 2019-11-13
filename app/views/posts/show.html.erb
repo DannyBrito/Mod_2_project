@@ -20,9 +20,11 @@ User:<br>
     <%= submit_tag "Comment" %>
 <% end %>
 
-<%= form_tag new_like_path(@like),method: :get do %>
-    <%= submit_tag "Like" %>
-<% end %>
+<%= form_for(@like) do |f| %>
+    <%= f.hidden_field :post_id, :value => @post.id %>
+    <%= f.hidden_field :user_id, :value => @logged_in_user.id %>
+    <%= f.submit "Like" %>
+    <% end %><br>
 
 Likes: <%= @post.likes.count %> Comments: <%= @post.comments.count %><br>
 ----------------------------------------------<br>
