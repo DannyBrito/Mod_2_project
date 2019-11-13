@@ -26,16 +26,20 @@ class UsersController < ApplicationController
     end
 
     def edit
+        if @user != @logged_in_user
+            redirect_to @user
+        end
     end
 
     def update
         @user.update(user_params)
-        redirect_to users_path(@user)
+        redirect_to user_path(@user)
     end
 
     def destroy
         @user.destroy
-        redirect_to users_path(@user)
+        session[:user_id] = nil
+        redirect_to users_path
     end
 
     private

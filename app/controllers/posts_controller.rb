@@ -21,6 +21,10 @@ class PostsController < ApplicationController
 
     def edit
         #@post = Post.find(params[:id])
+            if @post.user != @logged_in_user
+                redirect_to @post
+            end
+
     end
 
     def update
