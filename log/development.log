@@ -15469,3 +15469,2471 @@ Completed 200 OK in 30ms (Views: 22.2ms | ActiveRecord: 0.7ms | Allocations: 568
 >>>>>>> Danny0.4.3
 
 
+Started GET "/users" for ::1 at 2019-11-12 17:56:25 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+Completed 404 Not Found in 19ms (ActiveRecord: 2.0ms | Allocations: 5025)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=45):
+  
+app/controllers/application_controller.rb:14:in `required_login'
+Started GET "/" for ::1 at 2019-11-12 17:56:43 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2080)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms | Allocations: 3361)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 31]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 32]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 33]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 34]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 35]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Destroy (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 10]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Destroy (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 12]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "Dan"], ["created_at", "2019-11-12 22:57:11.510846"], ["updated_at", "2019-11-12 22:57:11.510846"], ["password_digest", "$2a$10$bwRPX7mbn00AU5CEWf5lbeQOmqQcws7bCeGT6CY2Av7Gxyepg8Feq"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "Eli"], ["created_at", "2019-11-12 22:57:11.591844"], ["updated_at", "2019-11-12 22:57:11.591844"], ["password_digest", "$2a$10$2eDJSX6rPw9AtTNejPH0X.O.Xf.LuKD8LkSHfLxs4dDbzZyyo8uA."]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "Jack"], ["created_at", "2019-11-12 22:57:11.671380"], ["updated_at", "2019-11-12 22:57:11.671380"], ["password_digest", "$2a$10$RRV9aBLfjBll97FdFgYO4uor7diYtDLwnX1vKNoOOhgLmd71eBN0q"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "Ont"], ["created_at", "2019-11-12 22:57:11.751077"], ["updated_at", "2019-11-12 22:57:11.751077"], ["password_digest", "$2a$10$OamPpHso91XJbzw8.UJwNO86Z37aN42sllugQvE1vcJ28R8axsa2m"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "Pr"], ["created_at", "2019-11-12 22:57:11.831663"], ["updated_at", "2019-11-12 22:57:11.831663"], ["password_digest", "$2a$10$kp6xOuvDVX/TQ.NSTIGfdO1qwY5VBGqBsYuwXMuZ8T0cpzPdVGIYK"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 40], ["content", "hello"], ["created_at", "2019-11-12 22:57:11.846567"], ["updated_at", "2019-11-12 22:57:11.846567"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 37], ["content", "LOL"], ["created_at", "2019-11-12 22:57:11.852040"], ["updated_at", "2019-11-12 22:57:11.852040"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 39], ["content", "Other one"], ["created_at", "2019-11-12 22:57:11.856669"], ["updated_at", "2019-11-12 22:57:11.856669"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2019-11-12 17:57:16 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1690)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 2404)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:18 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1705)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 2420)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:18 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1690)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2403)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:19 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1705)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2420)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:20 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1705)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 2420)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:20 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1690)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms | Allocations: 2403)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:21 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1690)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2403)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:21 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2183)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3113)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:21 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2301)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 3693)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:57:22 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2139)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 4210)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/users" for ::1 at 2019-11-12 17:58:50 -0500
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 232)
+
+
+Started GET "/" for ::1 at 2019-11-12 17:58:50 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 316)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.0ms | Allocations: 7750)
+
+
+Started GET "/" for ::1 at 2019-11-12 17:59:20 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1690)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms | Allocations: 2404)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 17:59:54 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 303)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 4345)
+
+
+Started GET "/" for ::1 at 2019-11-12 17:59:55 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 303)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 4340)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-12 18:00:17 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2388)
+Completed 200 OK in 32ms (Views: 21.3ms | ActiveRecord: 0.0ms | Allocations: 12931)
+
+
+Started POST "/login" for ::1 at 2019-11-12 18:00:21 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"X47aDhzRILzl7tAwg7cDDtf7MmejisoBWM4fBQRWRTo53xa+l9dO4bAWEle3DHRFyCJ2FI8yCut+n5vfpA7KEA==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 0.3ms | Allocations: 1102)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:00:21 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 846)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 4890)
+
+
+Started GET "/users" for ::1 at 2019-11-12 18:00:26 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 951)
+Completed 200 OK in 31ms (Views: 16.1ms | ActiveRecord: 1.1ms | Allocations: 6104)
+
+
+Started GET "/logout" for ::1 at 2019-11-12 18:00:53 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2019-11-12 18:01:16 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 771)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.4ms | Allocations: 5340)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:01:42 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1693)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 2407)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 18:01:43 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1684)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 2397)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 18:01:43 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1914)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 3059)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 18:01:43 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 5.0ms | Allocations: 3753)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 4942)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 18:01:44 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2992)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 5096)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 18:01:44 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:18
+  Rendered application/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2444)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 5921)
+
+
+  
+ActionView::Template::Error (Couldn't find User with 'id'=45):
+    15: <% end %>
+    16: 
+    17: <% if session[:user_id] %>
+    18: <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+    19: <% end %>
+  
+app/views/application/home.html.erb:18
+Started GET "/" for ::1 at 2019-11-12 18:02:38 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 600)
+Completed 200 OK in 33ms (Views: 30.2ms | ActiveRecord: 0.0ms | Allocations: 5728)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:39 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:39 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:39 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:40 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:40 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:41 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:41 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:41 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:41 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:42 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:42 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:42 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:02:44 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-12 18:04:50 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 748)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 5753)
+
+
+Started POST "/login" for ::1 at 2019-11-12 18:04:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"t+Cf6UNx/02QirNUBIHLtlavNm+koW3bGSxQCmLmzGkYSD9hMmvaYXTjwWauFYAl8RmRV2zKlleD/Gq8CVoV5g==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 84ms (ActiveRecord: 0.4ms | Allocations: 1268)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:04:57 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 308)
+Completed 200 OK in 22ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started GET "/users" for ::1 at 2019-11-12 18:05:01 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 945)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 0.3ms | Allocations: 6404)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:05:19 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 308)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started POST "/logout" for ::1 at 2019-11-12 18:05:24 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mjWP267Lr4Sm7eBQCFoDOgpfGcGQOc3RYX00vA/ZO9JqNfw0QIwItpby7AzyTzMSAHWaWCjbbPVshI7YGSt3Og==", "commit"=>"Log-out"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 657)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:05:24 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started POST "/logout" for ::1 at 2019-11-12 18:05:25 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CSjoRlEHfyiKN1BTqML9ytXPABB4oxbBwwsznFafJfmmgEjOIB1aBG5eImECVrZZcnmnKLDI7U1Z2wkqPSP8dg==", "commit"=>"Log-out"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 630)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:05:25 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4654)
+
+
+Started POST "/logout" for ::1 at 2019-11-12 18:05:25 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xiECazMNzvUbOKYxuTOllzfS6W6rQwOwIcyf4DqQ20RpiaLjQhfr2f9R1AMTp+4EkGROVmMo+Dy7HKVWUSwCyw==", "commit"=>"Log-out"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 629)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:05:25 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4644)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-12 18:05:51 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 553)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 4970)
+
+
+Started POST "/login" for ::1 at 2019-11-12 18:05:59 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"+oYhqO5Ul51xv3UKvBVAyLJgpThqplKLEcjnEHvF48JVLoEgn06ysZXWBzgWgQtbFdYCAKLNqQeLGN2mEHk6TQ==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.2ms | Allocations: 1244)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:05:59 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 4654)
+
+
+Started GET "/users" for ::1 at 2019-11-12 18:06:08 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 770)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 5644)
+
+
+Started GET "/users/39" for ::1 at 2019-11-12 18:06:20 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 596)
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 0.3ms | Allocations: 6114)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:06:40 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 308)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 4662)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:16 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 300)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:17 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:18 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:19 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 300)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 4655)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:22 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:25 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:26 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:26 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:32 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.5ms | Allocations: 300)
+Completed 200 OK in 25ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:32 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 300)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:33 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 3.4ms | Allocations: 300)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:33 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 300)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:33 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:09:34 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:45 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 607)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 5721)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:46 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 4638)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:46 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4639)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:46 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4636)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:46 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4637)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:47 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 4639)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-12 18:10:53 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 743)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 5742)
+
+
+Started POST "/login" for ::1 at 2019-11-12 18:10:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"NKeO4YorfHjpNukbUMwXCGYz1WQNFRDE29Z0DDi5wZObDy5p+zFZVA1fmyn6WFybwYVyXMV+60hBBk66UwUYHA==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 84ms (ActiveRecord: 0.3ms | Allocations: 1245)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:10:58 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 308)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/users" for ::1 at 2019-11-12 18:11:04 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 920)
+Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 6379)
+
+
+Started GET "/users" for ::1 at 2019-11-12 18:12:29 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 770)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 5643)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:40 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 308)
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 4644)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:47 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 600)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 5725)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:47 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:48 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:48 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.7ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:48 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:48 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:14:48 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4655)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-12 18:16:57 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 748)
+Completed 200 OK in 22ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 5757)
+
+
+Started POST "/login" for ::1 at 2019-11-12 18:17:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"/gdXVULohDhWtN3/ol1DTk2gLJ8L2aNyFyAidGSe0vhRr/fdM/KhFLLdr80IyQjd6haLp8OyWP6N8BjCDyILdw==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 81ms (ActiveRecord: 0.3ms | Allocations: 1243)
+
+
+Started GET "/" for ::1 at 2019-11-12 18:17:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 308)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4661)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:51:11 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 5.0ms | Allocations: 300)
+Completed 200 OK in 52ms (Views: 43.0ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:51:12 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 300)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:51:13 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:51:14 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 3.6ms | Allocations: 300)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:51:14 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 300)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:51:14 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 300)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-13 08:54:03 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 550)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 4959)
+
+
+Started POST "/login" for ::1 at 2019-11-13 08:54:12 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"7eTPRzyrJ4omOyNBMokLJEcxQWPYtzNidEaw/xkpwxxCTG/PTbECpsJSUXOYHUC34IfmWxDcyO7ulopJcpUakw==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 81ms (ActiveRecord: 0.6ms | Allocations: 1271)
+
+
+Started GET "/" for ::1 at 2019-11-13 08:54:12 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/login" for ::1 at 2019-11-13 08:54:51 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 550)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 4957)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 08:54:54 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2906)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.4ms | Allocations: 8395)
+
+
+Started GET "/login?commit=Log-In" for ::1 at 2019-11-13 08:55:00 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"commit"=>"Log-In"}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 553)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 4973)
+
+
+Started GET "/login" for ::1 at 2019-11-13 08:55:03 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 550)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4961)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 08:55:05 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `required_login'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2228)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 7122)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:01:18 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 617)
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 5743)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:01:19 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:01:19 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:01:19 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:01 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 618)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 5745)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:01 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 4655)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:04 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:02:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 748)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.0ms | Allocations: 5756)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:02:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ut6z39REZkxcRKGdHLM+cDUWNTKQGHYPvA7MXNzZYmJmxb1Eu77sk/8oM9FbBxlFjL31HViFr+MArycUEoiPgA==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 0.3ms | Allocations: 1291)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:11 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 308)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 4667)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:29 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 3.0ms | Allocations: 622)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 5746)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:30 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 3.3ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:30 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:30 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 300)
+Completed 200 OK in 28ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4654)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:32 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4649)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:32 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:32 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:02:38 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 748)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 5758)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:02:42 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8xLM8jqFTMi0p6LN/iG/YkTE/p8N3Grv5IAVjk2c85EvCcJpVX/GFxfLMIG5lZhX/W8+sMVBswNYIf7Gg80ecw==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 0.8ms | Allocations: 1265)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:02:42 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 308)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:02:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 550)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4966)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:02:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"4vrx0kskbui1OZlhN0tiwI9dvdLqh52DlfsOoTWDoIdNUlFaOj5LxFFQ61Od3ylTKOsa6iLsZg8PKzQXXj95CA==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 77ms (ActiveRecord: 0.2ms | Allocations: 1253)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:02:49 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 550)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4961)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:03:00 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"66XzSrcIjg3AQw+F1L6255tJDT6uR9q0rkt9ob49DuREDVPCxhKrISQqfbd+Kv10PP+qBmYsITg0m0cX1YHXaw==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 0.1ms | Allocations: 1245)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:03:00 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:06:48 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 791)
+Completed 200 OK in 28ms (Views: 7.9ms | ActiveRecord: 1.2ms | Allocations: 14132)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:06:49 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 780)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 5606)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:06:49 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 780)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.2ms | Allocations: 5599)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:06:50 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 780)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.2ms | Allocations: 5605)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:06:50 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 780)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 5605)
+
+
+Started GET "/logout" for ::1 at 2019-11-13 09:06:51 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=lo" for ::1 at 2019-11-13 09:07:19 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"lo"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2993)
+
+
+Started GET "/rails/info/routes?path=log" for ::1 at 2019-11-13 09:07:20 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"log"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1293)
+
+
+Started GET "/rails/info/routes?path=logout" for ::1 at 2019-11-13 09:07:32 -0500
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"logout"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1282)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:08:42 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1102)
+Completed 200 OK in 31ms (Views: 22.8ms | ActiveRecord: 0.3ms | Allocations: 6712)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:08:44 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 782)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 5617)
+
+
+Started POST "/logout" for ::1 at 2019-11-13 09:08:45 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1mFt1CNPDtSrBn8omz+cJ46jSevNGFyPmvknMCiVwdd5yc1cUlUr+E9vDRoxq9e0KRXu0wVzpwMAKR2GQykYWA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 681)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:08:45 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 4652)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:08:47 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 793)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 5794)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:08:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"owcgZQUS441I0beZo91ATaR7z5liGUoXNVGfhJuexC9/HC7+auhpUuu9JdXkaWd4HdAPtqqEk/uJ8HTMVc8pzQ==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.4ms | Allocations: 1394)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:08:54 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 788)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 5629)
+
+
+Started POST "/logout" for ::1 at 2019-11-13 09:08:56 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0tlTeTuMDDgoy8XoNMCYRDDFZBgGwzaGtFppZXJYXu59cfPxSpYpFMyit9qeVNPXl3PDIM6ozQouilPTGeSHYQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 636)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:08:56 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:09:26 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 550)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 4962)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:09:38 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"MBv8xmdnUtxuEJVEyb90N5f1WS1/98fwIFk83wYi2rfsAPJdCJ3YA818BwiOC1MCLl6ZArdqHhyc+NeXyHM3VQ==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 0.2ms | Allocations: 1264)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:09:38 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 780)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 5612)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:32 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 3.6ms | Allocations: 780)
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 5621)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:33 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.4ms | Allocations: 780)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 5619)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:33 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 780)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.6ms | Allocations: 5621)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:34 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 780)
+Completed 200 OK in 24ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 5617)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:34 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 780)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.1ms | Allocations: 5617)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:34 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 780)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.2ms | Allocations: 5619)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:42 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1102)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 6712)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:43 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 782)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 5623)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:43 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 4.9ms | Allocations: 780)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.3ms | Allocations: 5619)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:44 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 780)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 5622)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:45 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 4.0ms | Allocations: 780)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.2ms | Allocations: 5620)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:45 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 780)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.6ms | Allocations: 5618)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:45 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 780)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 5617)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:45 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 780)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 5617)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:46 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 780)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 5616)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:46 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 780)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.3ms | Allocations: 5622)
+
+
+Started POST "/logout" for ::1 at 2019-11-13 09:10:47 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ui1LqyQtbLKEAxGNAYb7tXT75C9mO7g7mb9kiNrOvR0VhesjVTdJnmBqY7+rErAm001DF65QQ7cDb14+sXJkkg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 641)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:47 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 4654)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:10:56 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 697)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:56 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 4664)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:10:57 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 626)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:57 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 4660)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:10:58 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 623)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:58 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4667)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:10:58 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 617)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:58 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4661)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:10:59 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 629)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:10:59 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:00 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:00 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:00 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 623)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:00 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4663)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:00 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 624)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:00 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4664)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:01 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 626)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:01 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4666)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:01 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:01 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4667)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:01 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 621)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:01 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4663)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:02 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 621)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4665)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:02 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 623)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4661)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:02 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 622)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:02 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 4664)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 621)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4663)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 624)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 617)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 4660)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:03 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 625)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 623)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 4663)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 626)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 622)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:04 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 4660)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 618)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 622)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4661)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 622)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 622)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:05 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 4659)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:06 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 623)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:06 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4665)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:11:06 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 628)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:11:06 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 4665)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:13:44 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 309)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4832)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:13:45 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 2763)
+Completed 200 OK in 40ms (Views: 22.8ms | ActiveRecord: 0.9ms | Allocations: 15956)
+
+
+Started POST "/users" for ::1 at 2019-11-13 09:14:05 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Rr5BSotBHPv3LBw67eGNueSj/Mil+sYIswlvKmz7gQdOfO2R5dFFLIcCXBpsVf5amyVr42ltZ92jw++H3T4scw==", "user"=>{"username"=>"Pet", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Create (4.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "Pet"], ["created_at", "2019-11-13 14:14:05.719521"], ["updated_at", "2019-11-13 14:14:05.719521"], ["password_digest", "$2a$10$xmjUM1hNtc.eGuYKCQDNg.S0Aih3c.9WN6VrApXqP64I.UpjmAwWu"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users/41
+Completed 302 Found in 97ms (ActiveRecord: 5.8ms | Allocations: 3282)
+
+
+Started GET "/users/41" for ::1 at 2019-11-13 09:14:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"41"}
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 618)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:14:05 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 308)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 4661)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:18:30 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 309)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4831)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:18:30 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 4643)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:18:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:18:31 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/login" for ::1 at 2019-11-13 09:19:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 803)
+Completed 200 OK in 34ms (Views: 19.1ms | ActiveRecord: 0.6ms | Allocations: 13920)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:19:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"KWv8H5oK4EMJhFPBmbI+m7YVDTp+eHbKCaF6Bc51fmv1cPKE9fBqnKrowY3eBhmuD77NFbblrya1AJFNACSTiQ==", "user"=>{"username"=>"Pet", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Pet"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.3ms | Allocations: 1429)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:11 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 788)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 5759)
+
+
+Started POST "/logout" for ::1 at 2019-11-13 09:19:13 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"viHhdACIHJf/z1oK5lPRn68JbKOtywZ2wyRs7pDnTWERiUH8cZI5uxumKDhMx5oMCL/Lm2Wg/fpZ9FZY+1uU7g=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 633)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:13 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:49 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 300)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:51 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:52 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:52 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:52 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4645)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:52 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:54 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 4646)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:55 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 300)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:55 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 300)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:55 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 300)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:55 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 300)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4647)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:19:55 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 300)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:20:01 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 550)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 4956)
+
+
+Started POST "/login" for ::1 at 2019-11-13 09:20:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"eXm/crWq6x03GgWu2PwM6VWM73G5A7Tjq99TiPo+tMSlYrHp2lBhwpR2l+KfSCvc7CcvXnGebQ8XfrjANG9ZJg==", "user"=>{"username"=>"Jack", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Jack"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.2ms | Allocations: 1257)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:20:06 -0500
+Processing by ApplicationController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `home'
+  Rendering application/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/views/application/home.html.erb:2
+  Rendered application/home.html.erb within layouts/application (Duration: 4.0ms | Allocations: 780)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.6ms | Allocations: 5618)
+
+
+Started POST "/logout" for ::1 at 2019-11-13 09:20:16 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OkO171mlyjU/dIdPcP1cLeEfOcU8mvU/KhEfxIZ+GoOV6xVnKL/vGdsd9X3aaRe+Rqme/fTxDrOwwSVy7cLDDA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 633)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:20:16 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 300)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:20:23 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 550)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 4959)
+
+
+Started GET "/users" for ::1 at 2019-11-13 09:20:27 -0500
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :required_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 694)
+
+
+Started GET "/" for ::1 at 2019-11-13 09:20:30 -0500
+Processing by ApplicationController#home as HTML
+  Rendering application/home.html.erb within layouts/application
+  Rendered application/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 300)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 0.0ms | Allocations: 4656)
+
+
+Started GET "/login" for ::1 at 2019-11-13 09:21:01 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 550)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 4963)
+
+
+Started GET "/sign-up" for ::1 at 2019-11-13 09:21:20 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2248)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 6800)
+
+
+Started POST "/users" for ::1 at 2019-11-13 09:22:02 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"wM3gLO2Gpy/3ot3U0HCaTg4l51/DC4CAz/lzQm596V/ID0z3gxb++IeMnfRRxOmtcaNwdA+cIVXfM/Pv37hEKw==", "user"=>{"username"=>"tt", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "tt"], ["created_at", "2019-11-13 14:22:02.674828"], ["updated_at", "2019-11-13 14:22:02.674828"], ["password_digest", "$2a$10$eVapu9Y3d3RTWGdc2/.cmuc7cKQMABDqdL.GtcodemPWoJgZEEHH."]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+Redirected to http://localhost:3000/users/42
+Completed 302 Found in 91ms (ActiveRecord: 3.9ms | Allocations: 3071)
+
+
+Started GET "/users/42" for ::1 at 2019-11-13 09:22:02 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `required_login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:48:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 590)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 6127)
+
+

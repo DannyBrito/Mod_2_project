@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
     skip_before_action :required_login, only:[:home,:required_login] #inh... all controller so if home action in other controller it will break
 
     def home
-        
+        if session[:user_id]
+            @logged_in_user = User.find(session[:user_id])
+        end
     end
 
     private

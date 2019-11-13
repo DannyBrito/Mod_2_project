@@ -11,10 +11,10 @@
 
   <body>
     <nav>
-      <%= link_to "Flacebook", "/#" %>
+      <%= link_to "Flacebook", "/" %>
         <% if @logged_in_user%>
           <ul>
-            <li><%= link_to "Logout", logout_path %></li>
+            <li><%= link_to "Logout", logout_path, method: :post %></li>
           </ul>
         <% else %>
           <ul>

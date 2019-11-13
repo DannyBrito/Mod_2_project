@@ -11,4 +11,4 @@ ______________________________________
  *attendee
 
 =========================================
-Setting tables models - and connecting to controller 
+Setting tables models - and connecting to control
