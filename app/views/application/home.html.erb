@@ -1,5 +1,8 @@
 <% if @logged_in_user %>
 <p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+<hr>
+<%= render "posts/all" %>
+
 <% else %>
 This show only be displayed if no login & and option to login or signup
 <br><br>

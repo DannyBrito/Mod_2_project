@@ -8,7 +8,7 @@ Job: <%= @user.job %><br>
 Hobby: <%= @user.hobby %><br>
 
 <br>
-
+<% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
 <%= form_tag edit_user_path(@user),method: :get do %>
     <%= submit_tag "Edit Profile" %>
 <% end %>
@@ -17,3 +17,4 @@ Hobby: <%= @user.hobby %><br>
 <%= form_tag user_path(@user),method: :delete do %>
     <%= submit_tag "Delete Profile" %>
 <% end %>
+<% end%>
