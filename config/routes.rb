@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
 
-  get '/', to: "application#home"
+  get '/', to: "application#home", as: "home"
 
   get '/login', to: "sessions#new"
 
