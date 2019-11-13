@@ -1,7 +1,12 @@
+<% if @logged_in_user %>
+<p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
+<% else %>
 This show only be displayed if no login & and option to login or signup
-
 <br><br>
+<% end %>
 
+
+<!--
 <%= form_tag login_path,method: :get do %>
     <%= submit_tag "Log-In" %>
 <% end %>
@@ -13,7 +18,4 @@ This show only be displayed if no login & and option to login or signup
 <%= form_tag sign_up_path, method: :get do %>
     <%= submit_tag "Sign-Up" %>
 <% end %>
-
-<% if session[:user_id] %>
-<p><strong>Welcome</strong>, <%= User.find(session[:user_id]).username.capitalize%>!</p>
-<% end %>
+-->
