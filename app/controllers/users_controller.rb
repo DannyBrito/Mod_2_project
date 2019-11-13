@@ -6,7 +6,7 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
-    def new
+    def new #creating new account
         @user = User.new
     end
 

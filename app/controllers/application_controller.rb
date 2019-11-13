@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     def home
         if session[:user_id]
             @logged_in_user = User.find(session[:user_id])
+            @posts = Post.all
         end
     end
 
