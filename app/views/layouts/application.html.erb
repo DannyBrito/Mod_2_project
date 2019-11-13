@@ -14,8 +14,9 @@
       <%= link_to "Flacebook", "/" %>
         <% if @logged_in_user%>
           <ul>
+            <li><%= link_to "Users", users_path, method: :get %></li>
             <li><%= link_to "#{@logged_in_user.username}'s Profile", @logged_in_user, method: :get %></li>
-            <li><%= link_to "Logout", logout_path, method: :post %></li>
+            <li><%= link_to "Logout", logout_path, method: :post,data:{confirm: "Are You Sure?"} %></li>
           </ul>
         <% else %>
           <ul>
