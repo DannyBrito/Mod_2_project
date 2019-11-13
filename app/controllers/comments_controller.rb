@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
     def create 
         @comment = Comment.create(content: comment_params[:content], user_id: params[:user_id], post_id: params[:post_id])
+        byebug
         redirect_to post_path(params[:post_id])
     end 
 
