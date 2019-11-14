@@ -1,5 +1,9 @@
 <h2> <%= @user.username %>'s Profile Page </h2>
 
+<% if @user.img_url%>
+    <%= image_tag @user.img_url %>
+<% end%>
+
 <% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
     <%= form_tag edit_user_path(@user),method: :get do %>
         <%= submit_tag "Edit Profile" %>
