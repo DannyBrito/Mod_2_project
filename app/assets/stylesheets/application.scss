@@ -31,6 +31,11 @@
    height: 100vh;
 }
 
-.half-heigh {
+.half-height {
    height: 500px;
+}
+
+.pimage {
+   max-width:100% !important;
+   height: auto !important;
 }
