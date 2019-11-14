@@ -10,24 +10,7 @@
     </head>
 
   <body>
-    <!--
-    <nav>
-      <%= link_to "Flacebook", "/" %>
-        <% if @logged_in_user%>
-          <ul>
-            <li><%= link_to "Users", users_path, method: :get %></li>
-            <li><%= link_to "#{@logged_in_user.username}'s Profile", @logged_in_user, method: :get %></li>
-            <li><%= link_to "Logout", logout_path, method: :post,data:{confirm: "Are You Sure?"} %></li>
-          </ul>
-        <% else %>
-          <ul>
-          <li><%= link_to "Log-In", login_path %></li>
-          <li><%= link_to "Sign-Up", sign_up_path %></li>
-          </ul>
-        <% end %>
-      
-    </nav> -->
-
+  
         <% if @logged_in_user%>
         
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -38,7 +21,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
- 
+      <li >
+        <%= link_to "Profile", user_path(@logged_in_user), class:"nav-link"%>
+      </li>
       <li >
         <%= link_to "Users", users_path, class:"nav-link"%>
       </li>
