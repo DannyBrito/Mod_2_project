@@ -3,15 +3,6 @@
 <% if @user.img_url%>
     <%= image_tag @user.img_url %>
 <% end%>
-
-<% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
-    <%= form_tag edit_user_path(@user),method: :get do %>
-        <%= submit_tag "Edit Profile" %>
-    <% end %>
-    <%= form_tag user_path(@user),method: :delete do %>
-        <%= submit_tag "Delete Profile", data: { confirm: 'Are You Sure?' } %>
-    <% end %>
-<% end%>
 <br>
 
 Name: <%= @user.username%><br>
@@ -23,7 +14,7 @@ Name: <%= @user.username%><br>
 
  <%if @user.posts.count != 0 %>
  <ul>
-    All Post:<br>
+    All Posts:<br>
     <% @user.posts.each do |post| %>
     <li>
         <%= link_to post.content, post %>
@@ -31,6 +22,17 @@ Name: <%= @user.username%><br>
     <% end %>
  </ul>
  <% end%>
+
+<br>
+<% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
+    <%= form_tag edit_user_path(@user),method: :get do %>
+        <%= submit_tag "Edit Profile" %>
+    <% end %>
+    <%= form_tag user_path(@user),method: :delete do %>
+        <%= submit_tag "Delete Profile", data: { confirm: 'Are You Sure?' } %>
+    <% end %>
+<% end%>
+
 <!-- Mood: <%= @user.mood %><br>
 <%# "Favorite Food: #{@user.food}" if !@user.food.empty? %>
 Favorite Music Genre: <%= @user.music %><br>
