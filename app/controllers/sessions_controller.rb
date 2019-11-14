@@ -2,8 +2,12 @@ class SessionsController < ApplicationController
     skip_before_action :required_login #check if we need to skip actions for other controllers
 
     def new #for login
+        if session[:user_id]
+            redirect_to home_path
+        else
         @user = User.new
         #redirect_to :controller => "users", :action => "new"
+        end
     end
 
     def create
@@ -18,7 +22,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session[:user_id] = nil
-        redirect_to '/'
+        redirect_to home_path
     end
 
     private
