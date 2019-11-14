@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'nokogiri'
+
+
 ruby '2.6.1'
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
