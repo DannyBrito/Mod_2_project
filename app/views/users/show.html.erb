@@ -1,37 +1,55 @@
-<h2> <%= @user.username %>'s Profile Page </h2>
+<div class="container-fluid bg-success ">
+
+<% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
+<div class="row justify-content-center p-2" >
+    <%= form_tag edit_user_path(@user),method: :get, class:"btn-sm btn-dark mr-2" do %>
+        <%= submit_tag "Edit Profile",class:"btn btn-dark" %>
+    <% end %>
+    <%= form_tag user_path(@user),method: :delete, class:"btn-sm btn-danger"  do %>
+        <%= submit_tag "Delete Profile", class:"btn btn-danger", data: { confirm: 'Are You Sure?' } %>
+    <% end %>
+</div>
+<% end%>
+
+<!-- Profile -->
+
+<div class="row justify-content-center">
+<div class="display-3"> <%= @user.username %>'s Profile Page </div>
+</div>
 
 <% if @user.img_url%>
-    <%= image_tag @user.img_url %>
+<div class="row justify-content-center rounded">
+    <%= image_tag @user.img_url, class: "rounded imgx" %>
+</div>
 <% end%>
-<br>
 
-Name: <%= @user.username%><br>
+<div class="row justify-content-center">
+    Name: <%= @user.username%><br>
+</div>
 <% @user.attributes.each do |key,value|%>
     <% next unless value && (key == 'mood' || key == 'food' || key == 'music'|| key == 'hobby'|| key == 'job') && !value.empty? %>
-    <%="#{key.capitalize}: #{value}"%> <br>
+    <div class="row justify-content-center">
+    <%="#{key.capitalize}: #{value}"%>
+    </div>
 <% end %>
 <br>
 
  <%if @user.posts.count != 0 %>
- <ul>
-    All Posts:<br>
+    <div class="row justify-content-center display-4">
+    All Posts:
+    </div>
     <% @user.posts.each do |post| %>
-    <li>
+        <div class="row justify-content-center">
         <%= link_to post.content, post %>
-    </li>
+        </div>
     <% end %>
- </ul>
+
  <% end%>
 
-<br>
-<% if @logged_in_user.id == @user.id  #show edit/delete - if own server%>
-    <%= form_tag edit_user_path(@user),method: :get do %>
-        <%= submit_tag "Edit Profile" %>
-    <% end %>
-    <%= form_tag user_path(@user),method: :delete do %>
-        <%= submit_tag "Delete Profile", data: { confirm: 'Are You Sure?' } %>
-    <% end %>
-<% end%>
+
+</div>
+
+
 
 <!-- Mood: <%= @user.mood %><br>
 <%# "Favorite Food: #{@user.food}" if !@user.food.empty? %>
