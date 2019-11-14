@@ -1,4 +1,23 @@
-<h2> Create Account </h2>
+<br><br>
+<div class="signup container">
+    <h1>Signup:</h1> 
+    <%= form_for @user do |f| %>
+    <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class:"form-control", placeholder: "Enter Username"%>
+    </div>
+    <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class:"form-control", placeholder: "Password" %>
+    </div>
+     <div class="form-group">
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Password" %>
+    </div>
+        <%= f.submit "Sign-Up", class: "btn btn-primary" %>
+<% end %>
+</div>
+<!-- <h2> Create Account </h2>
 
 <%= form_for @user do |f| %>
     <%= f.label :username %><br>
@@ -9,8 +28,7 @@
     <%= f.password_field :password_confirmation%><br>
     <%= f.submit %>
 <% end %> 
-
-
+-->
 
 
 <!--

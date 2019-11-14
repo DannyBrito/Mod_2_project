@@ -1,5 +1,13 @@
-<ul>
+<div class="container">
 <% @posts.each do |post| %>
-    <%= link_to post.content, post_path(post)%><br>
+<div class="row justify-content-md-center">
+<div class="card w-75 center">
+  <div class="card-body">
+    <h5 class="card-title "><%=link_to post.user.username, post.user %></h5>
+    <p class="card-text"><%= post.content %></p>
+    <%= link_to "Full Post", post_path(post),class:"btn btn-primary"%><br>
+  </div>
+</div>
+</div>
 <% end %>
-</ul>
+</div>
