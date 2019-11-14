@@ -16,6 +16,9 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
+        if @user.mood
+            @user.img_url = Scraper.search(@user.username,@user.mood)
+        end
         if @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
@@ -32,7 +35,12 @@ class UsersController < ApplicationController
     end
 
     def update
+        old_mood = @user.mood
+        old_username = @user.username
         @user.update(user_params)
+        if @user.mood != old_mood || @user.username != old_username
+            @user.update(img_url: Scraper.search(@user.username,@user.mood))
+        end
         redirect_to user_path(@user)
     end
 
