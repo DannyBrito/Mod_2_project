@@ -11,6 +11,11 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.create(post_params)
+        if @post
+            @post.img_url = Scraper.post(@post.content)
+            @post.save
+        end
+
         # redirect_to post_path(@post)
         redirect_to home_path
     end
@@ -30,7 +35,11 @@ class PostsController < ApplicationController
     end
 
     def update
+        old_content = @post.content
         @post.update(post_params)
+        if @post.content != old_content
+            @post.update(img_url: Scraper.post(@post.content))
+        end
         redirect_to post_path(@post)
     end
 

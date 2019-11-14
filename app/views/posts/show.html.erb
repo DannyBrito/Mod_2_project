@@ -1,17 +1,12 @@
 User: <%= link_to @post.user.username, user_path(@post.user) %><br>
-<%# @post.img_url %>
+
+<% if @post.img_url%>
+    <%= image_tag @post.img_url %>
+<% end%>
+
 <%= @post.content %>
 
 <hr>
-<% if @logged_in_user == @post.user %>
-    <%= form_tag post_path(@post),method: :delete do %>
-        <%= submit_tag "DELETE" %>
-    <% end %>
-    <br>
-    <%= form_tag edit_post_path(@post),method: :get do %>
-        <%= submit_tag "EDIT" %>
-    <% end %>
-<% end %>
 <br>
 <%= form_tag post_path(@post),method: :get do %>
     <%= submit_tag "Comment" %>
@@ -36,3 +31,13 @@ Likes: <%= @post.likes.count %> Comments: <%= @post.comments.count %><br>
     <%= f.text_field :content %>
     <%= f.submit "Comment" %>
     <% end %>
+<br>
+<% if @logged_in_user == @post.user %>
+    <%= form_tag post_path(@post),method: :delete do %>
+        <%= submit_tag "DELETE" %>
+    <% end %>
+    <br>
+    <%= form_tag edit_post_path(@post),method: :get do %>
+        <%= submit_tag "EDIT" %>
+    <% end %>
+<% end %>
