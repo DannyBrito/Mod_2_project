@@ -20,9 +20,7 @@ class UsersController < ApplicationController
 
     def create 
             @user = User.new(user_params)
-            if @user.mood
-                @user.img_url = Scraper.search(@user.username,@user.mood)
-            end
+            @user.img_url = Scraper.search(@user.username,@user.mood)
             if @user.save
                 session[:user_id] = @user.id
                 redirect_to edit_user_path(@user)
