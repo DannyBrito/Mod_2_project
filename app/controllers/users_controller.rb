@@ -25,7 +25,7 @@ class UsersController < ApplicationController
             end
             if @user.save
                 session[:user_id] = @user.id
-                redirect_to user_path(@user)
+                redirect_to edit_user_path(@user)
             else
                 redirect_to sing_up_path
             end 
