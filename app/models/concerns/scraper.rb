@@ -8,7 +8,7 @@ class Scraper
 
     def self.post(arg1)
         b_format = arg1.strip.split(" ").join("+")
-        uri = URI("https://www.google.com/search?tbm=isch&q=#{b_format}")
+        uri = URI("https://www.google.com/search?tbm=isch&q=#{b_format}+&imagesize:400x400")
         html_doc = Nokogiri::HTML(Net::HTTP.get(uri))
         if html_doc.css("a > img")["#{rand(0..3)}".to_i]
             return html_doc.css("a > img")["#{rand(0..3)}".to_i].attr('src')

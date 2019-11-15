@@ -1,50 +1,29 @@
-<h2> Edit Your Profile </h2>
-<!--
-<%= form_for @user do |f| %>
-    <%= f.label :username %>:
-    <%= f.text_field :username %><br>
-
-    Current <%= f.label :mood %>:
-    <%= f.text_field :mood %><br>
-
-    Favorite <%= f.label :hobby %>:
-    <%= f.text_field :hobby %><br>
-
-    Favorite <%= f.label :food %>:
-    <%= f.text_field :food %><br>
-
-    Favorite <%= f.label :music %> Genre:
-    <%= f.text_field :music %><br>
-
-    <%= f.label :job %>:
-    <%= f.text_field :job %><br>
-
-    <%= f.submit %>
-<% end %>
--->
-<div class="edit container">
-<%= form_for @user do |f| %>
-    <div class="form-group">
+<div class="container  p-3 "style="width: 45rem;">
+    <div class="row">
+    <h1>Edit Your Profile:</h1> 
+    </div>
+    <%= form_for @user do |f| %>
+    <div class="form-group row">
         <%= f.label :username %>
         <%= f.text_field :username, class:"form-control" %>
     </div>
-    <div class="form-group">
+        <div class="form-group row">
         <%= f.label :mood %>
         <%= f.text_field :mood, class:"form-control" %>
     </div>
-     <div class="form-group">
+     <div class="form-group row">
         <%= f.label :hobby %>
         <%= f.text_field :hobby, class:"form-control" %>
     </div>
-     <div class="form-group">
+     <div class="form-group row">
         <%= f.label :food %>
         <%= f.text_field :food, class:"form-control" %>
     </div>
-     <div class="form-group">
+     <div class="form-group row">
         <%= f.label :music %>
         <%= f.text_field :music, class:"form-control" %>
     </div>
-     <div class="form-group">
+     <div class="form-group row">
         <%= f.label :job %>
         <%= f.text_field :job, class:"form-control"%>
     </div>
