@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only:[:show,:edit,:update,:destroy]
+    before_action :find_post, only:[:show,:edit,:update,:destroy,:profile_d]
 
     def index
         @posts = Post.order('updated_at DESC')
@@ -44,6 +44,12 @@ class PostsController < ApplicationController
     end
 
     def destroy
+        @user = @post.user
+        @post.destroy
+        redirect_to home_path
+    end
+
+    def profile_d
         @user = @post.user
         @post.destroy
         redirect_to user_path(@user)
