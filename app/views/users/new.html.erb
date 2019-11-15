@@ -1,57 +1,25 @@
-<br><br>
-<div class="signup container">
+
+<div class="container-fluid full-height bg-light">
+    <div class="row mb-5">
+    </div>
+<div class="container bg-light p-3 "style="width: 25rem;">
+    <div class="row">
     <h1>Signup:</h1> 
+    </div>
     <%= form_for @user do |f| %>
-    <div class="form-group">
+    <div class="form-group row">
         <%= f.label :username %>
         <%= f.text_field :username, class:"form-control", placeholder: "Enter Username"%>
     </div>
-    <div class="form-group">
+    <div class="form-group row">
         <%= f.label :password %>
         <%= f.password_field :password, class:"form-control", placeholder: "Password" %>
     </div>
-     <div class="form-group">
+     <div class="form-group row">
         <%= f.label :password_confirmation, "Password Confirmation" %>
         <%= f.password_field :password_confirmation, class:"form-control", placeholder: "Password" %>
     </div>
-        <%= f.submit "Sign-Up", class: "btn btn-primary" %>
+        <%= f.submit "Login", class: "btn btn-primary" %>
 <% end %>
 </div>
-<!-- <h2> Create Account </h2>
-
-<%= form_for @user do |f| %>
-    <%= f.label :username %><br>
-    <%= f.text_field :username %><br>
-    <%= f.label :password%><br>
-    <%= f.password_field :password%><br>
-    <%= f.label :password_confirmation, "Password Confirmation" %><br>
-    <%= f.password_field :password_confirmation%><br>
-    <%= f.submit %>
-<% end %> 
--->
-
-
-<!--
-<%= form_for @user do |f| %>
-    <%= f.label :username %>:
-    <%= f.text_field :username %><br>
-
-    Current <%= f.label :mood %>:
-    <%= f.text_field :mood %><br>
-
-    Favorite <%= f.label :hobby %>:
-    <%= f.text_field :hobby %><br>
-
-    Favorite <%= f.label :food %>:
-    <%= f.text_field :food %><br>
-
-    Favorite <%= f.label :music %> Genre:
-    <%= f.text_field :music %><br>
-
-    <%= f.label :job %>:
-    <%= f.text_field :job %><br>
-
-    <%= f.submit %>
-<% end %> 
-
--->
+</div>
