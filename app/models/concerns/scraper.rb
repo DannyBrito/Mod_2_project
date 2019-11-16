@@ -1,8 +1,6 @@
 class Scraper
 
     def self.search(arg1, arg2)
-        emotions = ["happy","sad","hungry","excited","depressed","cool","chill","relaxed"]
-        arg2 = emotions.sample if arg2 == nil || arg2.empty?
         uri = URI("https://www.google.com/search?tbm=isch&q=#{arg1}+#{arg2}")
         html_doc = Nokogiri::HTML(Net::HTTP.get(uri))
         return html_doc.css("a > img")["#{rand(0..3)}".to_i].attr('src')

@@ -10,12 +10,16 @@ Post.destroy_all
 Like.destroy_all
 Comment.destroy_all
 ##TEST USERS
+emotions = ["happy","sad","hungry","excited","depressed","cool","chill","relaxed"]
 
-us1 = User.create(username: "Dan", password:'1234', mood: "happy")
+us1 = User.create(username: "Danny", password:'1234', mood: "mad")
 us2= User.create(username: "Eli", password:'1111', mood: "dumb")
 us3 = User.create(username: "Jack", password:'2222', mood: "curious")
 us4 = User.create(username: Faker::Name.name, password:'3333', mood: "excited")
 us5 = User.create(username: Faker::Name.name, password:'4444', mood: "serious")
+us6 = User.create(username: "Tony", password:'1234', mood: emotions.sample)
+us7= User.create(username: "Brad", password:'1234', mood: emotions.sample)
+us8 = User.create(username: "Babs", password:'1234', mood: emotions.sample)
 
 us1.img_url = Scraper.search(us1.username,us1.mood)
 us1.save

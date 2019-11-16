@@ -11,13 +11,16 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.create(post_params)
-        if @post
+        if @post.valid?
             @post.img_url = Scraper.post(@post.content)
             @post.save
+            redirect_to home_path
+        else
+            redirect_to home_path
         end
 
         # redirect_to post_path(@post)
-        redirect_to home_path
+        # redirect_to home_path
     end
 
     def show
