@@ -1,32 +1,68 @@
-# Mod_2_project
-Social Media App - Idea for Mod 2 project
+# Flatbook 👤
 
-Congratulations, we are starting project mode! This means that you'll spend the rest of the week working in a team to build out a Rails project of your choice. There will be some lectures and new material scheduled throughout the week, but the bulk of the time will be working on your projects.
+> A social media app inspired by Facebook.
 
-Some example project ideas from previous classes:
 
-Regifter - A gift trading app that lets users upload images and descriptions of unwanted gifts and propose trades with other users.
-Flatiron Postcard - An app that lets you create and send custom postcards to friends and family
-Petster - A social media site for pets
-ROBYStuff - Rent or Buy Your Stuff
-Planning Ahead - Plan Your Funeral
-JOBuddy - Assistance with Job Applications
-Requirements:
-You should have at least five models. You do not have to have all of these built out on day one. But by the end of the week, you should have at least five models.
+Users can join the app and start creating new posts for all other users in the app.
 
-Some methods in your models. There should be at least twenty methods total in your models. These are to be used to better extract data from your tables. Think Flatiron BnB Lab
 
-No APIs until you get approval from an instructor. The reason is because API's oftentimes leads you to learning the specific API really well, but not learning Rails that well. Rails is a more transferable skill. So stick with that.
+## Overview
 
-Specs - there should be at least 10 specs in your project (five per person).
+<b>Sign-in/Sign-up & Main Pages:</b> Users are greeted by a log-in and sign-up option. Once the user had sign/login, they are redirected to the main page, where all users' posts are going to be displayed.
 
-An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries.
+![](./docs/logmain.gif)
 
-No JavaScript. Stay focused on Rails for this project - we'll have plenty of time this semeseter to cover JS topics.
+<b>Profile & All Users Sections:</b>
+Each user has a personal & customizable profile. Where they have the option to edit/update their profile. A quick overview of the current user posts is displayed. The app has an index for all users that had joined the app, every user has access to the index.
 
-Project Task Guidelines
-Come up with an idea, model out domain.
-Add model tests, start building out basic features. Have some functionality built out by the end of the day.
-Iterate on the features that you built yesterday. Go from a 'skateboard' version to a scooter or a bicycle. It doesnt' have to be perfect, but it should be working.
-Start styling/ cleaning up issues.
-Issue cleanup and final demos.
+![](./docs/profile.gif)
+
+<b>Posting:</b>
+The main page of flatbook allows users to quickly browse new posts and create post themselves.
+For each individual post, users can comment and like the post. The creator of the post has the ability to edit/delete the post.
+
+![](./docs/post.gif)
+
+All media on the app is acquired by web scrapping technologies including:
+<li /> User profile images
+<li /> Post images
+
+
+## Technologies
+<ul>
+<li />Ruby on Rails
+<li />Bcrypt
+<li />Sqlite3
+<li />Nokogiri
+<li />ActiveRecord
+<li />HTML/CSS
+<li />BootStrap
+<li />Webpack Dev Server
+</ul>
+
+
+### Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+##### Prerequisites
+<ul>
+<li /> Ruby
+<li /> Sqlite3
+<li /> Open Weather API Key
+<li /> Webpack Dev Server
+</ul> 
+
+##### Running
+
+
+1. Clone/Download Repo.
+2. move into project ``` cd flatbook```
+3. run rails server on localhost.
+    ```sh 
+    rails server
+    ```
+4. run Webpack Dev Server  ```bin/webpack-dev-server```.
+
+
+## Meta
+
+Danny Brito – [LinkedIn](https://www.linkedin.com/in/dannybrito) - [Github](https://github.com/DannyBrito)
