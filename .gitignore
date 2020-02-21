@@ -1,3 +1,5 @@
 .byebug_history
 node_modules
 tmp/cache
+log
+.DS_Store
